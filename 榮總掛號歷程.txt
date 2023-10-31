@@ -1,0 +1,242 @@
+http url： https://webreg.vghks.gov.tw/RSMKS/api/myPost
+
+///醫生資訊
+{
+  "dtlid": 77,
+  "pampm": "A",
+  "hid": "1A0",
+  "pdocaltPdoccnam": "",
+  "todayOpen": false,
+  "pdocaltPdocsexZhTW": "",
+  "pdate": "2023-10-31",
+  "pdocalt": "",
+  "pclass": "1",
+  "pdstateNumStr": "",
+  "regOpen": true,
+  "content": "",
+  "psect": "09",
+  "proom": "32",
+  "confirmMsg": "",
+  "pdoclo": "0844C",
+  "pregtype": "R",
+  "pweekday": "2",
+  "pcivcqta": 20,
+  "proomc": "免疫風濕上午",
+  "pcollect": "1",
+  "pdoccnam": "呂聆音",
+  "teachingClinic": false,
+  "pfstcnt": 5,
+  "pdocenam": "Lyu Ling-Yin",
+  "pdocsexZhTW": "(女)",
+  "confirmMsgZhTW": "",
+  "todayOverTime": true,
+  "prregno": 46,
+  "firstRegister": false,
+  "pweekdayZhTW": "二",
+  "psectadr": "門診地下一樓",
+  "elderRegister": false,
+  "pdstate": "0",
+  "pdocaltPdocsex": "",
+  "pdocsex": "F",
+  "pdateStr": "2023-10-31",
+  "econtent": "",
+  "pdstateStr": "OutOfService",
+  "quotaFull": true,
+  "pdelnote": "",
+  "todayStrZhTW": "0900開放掛號",
+  "pdocaltPdocenam": "",
+  "pdstateStrZhTW": "已逾掛號時間",
+  "todayStr": "RegTime0900AM"
+}
+
+///掛號按鈕Event觸發 - 
+Request 1
+{
+  "type": "POST",
+  "url": "https://wac01p.vghks.gov.tw:4439/VGHKSWeb/vghks_rest/onlineRegistration/patient/1A0/hidno/E121585058?apid=apRSMKS",
+  "body": "{}"
+}
+Response 1 - 檢查病人ID有無存在於醫院DB (初/複診都有)
+[
+  {
+    "hhisnum": "10157296  ",
+    "hid": "1A0",
+    "id": {
+      "hhisnum": "10157296  ",
+      "hid": "1A0"
+    },
+    "hnamec": "黃＊誠",
+    "hname": "",
+    "hsex": "M",
+    "hbirthdt": -241430400000,
+    "hidno": "E121585058",
+    "hresdnce": "",
+    "hmarstat": "",
+    "hmilitry": "",
+    "hswtype": "",
+    "hreligin": "",
+    "hbldtype": "",
+    "hpatgono": "",
+    "hraredis": "",
+    "hoccupn": "",
+    "hfinacl": "",
+    "hfvsect": "",
+    "hactstat": "0",
+    "hmrloc": "",
+    "hmrlent": "",
+    "hvip": "",
+    "hlastdt": 1698249600000,
+    "hlastsec": "",
+    "hmoney": "",
+    "hidcard": "Y",
+    "hfinacl2": "",
+    "herfin": "",
+    "hbilstat": "",
+    "hemgstat": "",
+    "hicflag": "",
+    "hmomidno": "",
+    "hbabyqty": "",
+    "hbabyseq": "",
+    "hdupflag": "",
+    "hvghvip": "",
+    "humantst": "",
+    "hicflag2": "",
+    "hmrcnt": "",
+    "hmrlock": "",
+    "hicdnr": "",
+    "hhbsag": "",
+    "hhbeag": "",
+    "hselfpay": "",
+    "hichosp": "",
+    "hicorgan": "",
+    "hdnrsign": "",
+    "hicflag3": "",
+    "hicflag4": "",
+    "hbilwarn": "",
+    "hnation": "",
+    "hname2": "",
+    "hnamec2": "",
+    "hidno2": "",
+    "hpassid": ""
+  }
+]
+
+Request 2 (複診)
+{
+  "type": "POST",
+  "url": "https://wac01p.vghks.gov.tw:4439/VGHKSWeb/vghks_rest/onlineRegistration/checkDuplicateRegister/?apid=apRSMKS",
+  "body": {
+    "id": {
+      "pdate": "2023-11-06",
+      "pregtype": "R",
+      "psect": "09",
+      "pclass": "1",
+      "proom": "29",
+      "hid": "1A0"
+    },
+    "phistnum": "10157296  ",
+    "pampm": "A"
+  }
+}
+Response 2
+N
+
+Request 3 (複診)
+{
+  "type": "POST",
+  "url": "https://wac01p.vghks.gov.tw:4439/VGHKSWeb/vghks_rest/onlineRegistration/checkMultipleRegister/?apid=apRSMKS",
+  "body": {
+    "id": {
+      "pdate": "2023-11-06",
+      "pregtype": "R",
+      "psect": "09",
+      "pclass": "1",
+      "proom": "29",
+      "hid": "1A0"
+    },
+    "phistnum": "10157296  ",
+    "pampm": "A"
+  }
+}
+Response 3
+N
+
+///確認掛號 - 掛號成功(初診
+
+Request
+
+{
+  "type": "POST",
+  "url": "https://wac01p.vghks.gov.tw:4439/VGHKSWeb/vghks_rest/onlineRegistration/register/1A0?apid=apRSMKS",
+  "body": {
+    "rsfirst": "Y",
+    "idType": "RSHIDNO",
+    "dateOfBirth": "19920920",
+    "hhisnum": "",
+    "id": "S124417923",
+    "pdateStr": "2023-11-06",
+    "pdate": "2023-11-06",
+    "pregtype": "R",
+    "pclass": "1",
+    "psect": "09",
+    "proom": "29",
+    "pampm": "A",
+    "device": "web",
+    "hid": "1A0",
+    "pcov19tp": " ",
+    "opdophis": {
+      "id": {
+        "zopdophi": "2023-10-31T14:50:27.000Z",
+        "clientip": "219.69.111.167",
+        "sessid": "658bf8ea-b126-4c89-9161-d9000b873683"
+      }
+    }
+  }
+}
+
+Response 
+{
+    "sectC": "免疫風溼上午",
+    "eTime": "09:00",
+    "cicxIn": "",
+    "retCode": "Y",
+    "pdocname": "Visiting Staff",
+    "docNameC": "顏伶容",
+    "xreturn": "0000",
+    "pdocnamc": "資深醫師",
+    "cicxOut": "",
+    "registerDT": "2023-10-31 22:52:29",
+    "xrsmesg": null,
+    "seq": "6",
+    "pNameC": ""
+}
+
+///確認掛號 - 掛號成功(複診)
+{
+  "type": "POST",
+  "url": "https://wac01p.vghks.gov.tw:4439/VGHKSWeb/vghks_rest/onlineRegistration/register/1A0?apid=apRSMKS",
+  "body": {
+    "rsfirst": "N",
+    "idType": "RSHIDNO",
+    "dateOfBirth": "",
+    "hhisnum": "10157296  ",
+    "id": "E121585058",
+    "pdateStr": "2023-11-06",
+    "pdate": "2023-11-06",
+    "pregtype": "R",
+    "pclass": "1",
+    "psect": "09",
+    "proom": "32",
+    "pampm": "A",
+    "device": "web",
+    "hid": "1A0",
+    "pcov19tp": " ",
+    "opdophis": {
+      "id": {
+        "zopdophi": "2023-10-31T14:32:12.000Z",
+        "clientip": "219.69.111.167",
+        "sessid": "c6d5c12a-d46d-42f6-ada7-92678ee0655d"
+      }
+    }
+  }
+}
