@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "LWsSXXHLto5s8DduNg9eu9aIYsg9tqjk8UbFWqeiwgm0tTCDzFd6GucdvqgpMWkwEA/++Gb+1iGZ5OK7fkKbiQ==",
+  "dgSpecHash": "1lNMBouoQWq54DiQ8VvGdcQO/yAXGhDCOpBSfqat63l434MaNE6oktm6BBXg/594Z6gjw/B1uhDV/jR0yfSeXA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\user\\Downloads\\BookingHosi\\BookingHosi\\BookingHosi.csproj",
+  "projectFilePath": "C:\\Users\\user\\source\\repos\\TaoHighEn\\BookingHosi\\BookingHosi\\BookingHosi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\user\\.nuget\\packages\\microsoft.win32.systemevents\\7.0.0\\microsoft.win32.systemevents.7.0.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
