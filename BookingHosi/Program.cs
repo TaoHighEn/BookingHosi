@@ -54,16 +54,12 @@ namespace BookingHosi
                 WebElements = drivers.FindElements(By.TagName("select"));
                 Select se = new Select(WebElements.First());
                 se.SelectByValue("1");
-                var result = drivers.FindElements(By.TagName("span"));
-                //var items = result.FindElements(By.ClassName("ng-star-inserted"));
-                //var items = result.Select.FindElements(By.TagName("span"));
-                foreach (var item in result)
-                {
-                    var ii = item.GetType();
-                    Console.WriteLine(item.Text);
-                }
+                WebElements = drivers.FindElements(By.TagName("span"));
+                var f_r = WebElements.First(x=>x.Text.Contains("林峻宇"));
+                WebElement parent = (WebElement)f_r.FindElement(By.XPath("./.."));
+                parent.Click();
+                WebElements = drivers.FindElements(By.TagName("input"));
                 
-                //items.Click();
             }
         }
     }
